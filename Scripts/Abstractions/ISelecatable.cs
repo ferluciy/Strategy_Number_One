@@ -2,10 +2,9 @@ using UnityEngine;
 
 namespace Abstractions
 {
-    public interface ISelecatable
+    public interface ISelecatable: IHealthHolder
     {
-        float Health { get; }
-        float MaxHealth { get; }
+        Transform PivotPoint { get; }
         Sprite Icon { get; }
     }
 }

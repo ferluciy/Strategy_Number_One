@@ -1,19 +1,14 @@
 using Abstractions;
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace Strategy
 {
     [CreateAssetMenu(fileName = nameof(SelectableValue), menuName = "Strategy Game/" +
 nameof(SelectableValue), order = 0)]
-public class SelectableValue : ScriptableObject
-{
-    public ISelecatable CurrentValue { get; private set; }
-    public Action<ISelecatable> OnSelected;
-    public void SetValue(ISelecatable value)
+public class SelectableValue : ScriptableObjectValueBase<ISelecatable>
     {
-        CurrentValue = value;
-        OnSelected?.Invoke(value);
-    }
+
 }
 }

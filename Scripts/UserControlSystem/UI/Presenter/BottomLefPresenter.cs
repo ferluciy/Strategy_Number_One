@@ -14,7 +14,7 @@ namespace Strategy
     [SerializeField] private SelectableValue _selectedValue;
     private void Start()
     {
-        _selectedValue.OnSelected += onSelected;
+        _selectedValue.OnNewValue += onSelected;
         onSelected(_selectedValue.CurrentValue);
     }
     private void onSelected(Abstractions.ISelecatable selected)

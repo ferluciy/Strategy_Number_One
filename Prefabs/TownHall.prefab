@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3595916648342545462}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 32.44926, y: 0, z: 30.699575}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1352564330521060930}
@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6e5ee350fb16445acf63b1e3ac90e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitPrefab: {fileID: 2721488403123776663, guid: 263e5dfdcdafa9c409b14abcaf48fadc, type: 3}
   _unitsParent: {fileID: 0}
   _maxHealth: 1000
   _icon: {fileID: 21300000, guid: 9fa1b6a61bde6d24e863d46ca1440eb2, type: 3}
+  _pivotPoint: {fileID: 3595916648342190102}
 --- !u!64 &4096774040837681837
 MeshCollider:
   m_ObjectHideFlags: 0
