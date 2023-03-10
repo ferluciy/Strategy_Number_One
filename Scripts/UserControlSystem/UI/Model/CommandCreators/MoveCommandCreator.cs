@@ -9,12 +9,11 @@ namespace Strategy
     public class MoveCommandCreator : CommandCreatorBase<IMoveCommand>
     {
         [Inject] private AssetsContext _context;
-        [Inject] private Vector3Value _groundClicks;
         private Action<IMoveCommand> _creationCallback;
         [Inject]
-        private void Init()
+        private void Init(Vector3Value groundClicks)
         {
-            _groundClicks.OnNewValue += onNewValue;
+            groundClicks.OnNewValue += onNewValue;
         }
         private void onNewValue(Vector3 groundClick)
         {

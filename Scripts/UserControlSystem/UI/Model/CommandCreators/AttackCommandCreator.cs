@@ -11,12 +11,11 @@ namespace Strategy
     {
 
         [Inject] private AssetsContext _context;
-        [Inject] private AttackableValue _attackable;
         private Action<IAttackCommand> _creationCallback;
         [Inject]
-        private void Init()
+        private void Init(AttackableValue attackable)
         {
-            _attackable.OnNewValue += onNewValue;
+            attackable.OnNewValue += onNewValue;
         }
         private void onNewValue(IAttackable attackable)
         {

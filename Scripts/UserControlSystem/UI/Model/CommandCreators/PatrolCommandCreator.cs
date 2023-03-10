@@ -10,12 +10,11 @@ namespace Strategy
     {
         [Inject] private AssetsContext _context;
         [Inject] private SelectableValue _selectable;
-        [Inject] private Vector3Value _groundClicks;
         private Action<IPatrolCommand> _creationCallback;
         [Inject]
-        private void Init()
+        private void Init(Vector3Value groundClicks)
         {
-            _groundClicks.OnNewValue += onNewValue;
+            groundClicks.OnNewValue += onNewValue;
         }
         private void onNewValue(Vector3 groundClick)
         {
