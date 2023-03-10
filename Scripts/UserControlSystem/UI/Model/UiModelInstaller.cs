@@ -7,16 +7,9 @@ using Zenject;
 namespace Strategy { 
 public class UiModelInstaller : MonoInstaller
 {
-[SerializeField] private AssetsContext _legacyContext;
- [SerializeField] private Vector3Value _groundClicks;
- [SerializeField] private AttackableValue _attackable;
-        [SerializeField] private SelectableValue _selectable;
         public override void InstallBindings()
     {
-        Container.Bind<AssetsContext>().FromInstance(_legacyContext);
-            Container.Bind<Vector3Value>().FromInstance(_groundClicks);
-            Container.Bind<AttackableValue>().FromInstance(_attackable);
-            Container.Bind<SelectableValue>().FromInstance(_selectable);
+
             Container.Bind<CommandButtonsModel>().AsTransient();
             Container.Bind<CommandCreatorBase<IProduceUnitCommand>>()
         .To<ProduceUnitCommandCommandCreator>().AsTransient();
