@@ -1,7 +1,6 @@
 
-using UnityEngine;
-using Abstractions;
 using Abstractions.Commands;
+using System.Threading;
 
 
 namespace Strategy
@@ -10,9 +9,10 @@ namespace Strategy
     public class StopCommandExecutor : CommandExecutorBase<IStopCommand>
     {
 
+        public CancellationTokenSource CancellationTokenSource { get; set; }
         public override void ExecuteSpecificCommand(IStopCommand command)
         {
-            Debug.Log("Стоп");
+            CancellationTokenSource?.Cancel();
         }
 
     }
