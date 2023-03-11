@@ -4,35 +4,14 @@ using System;
 using Zenject;
 using UnityEngine;
 using Abstractions;
+using System.Threading;
 
 namespace Strategy
 {
-    public class AttackCommandCreator : CommandCreatorBase<IAttackCommand>
+    public class AttackCommandCreator :
+    CancellableCommandCreatorBase<IAttackCommand, IAttackable>
     {
-
-        [Inject] private AssetsContext _context;
-        private Action<IAttackCommand> _creationCallback;
-        [Inject]
-        private void Init(AttackableValue attackable)
-        {
-            attackable.OnNewValue += onNewValue;
-        }
-        private void onNewValue(IAttackable attackable)
-        {
-            _creationCallback?.Invoke(_context.Inject(new
-            AttackCommand(attackable)));
-            _creationCallback = null;
-        }
-        protected override void
-        classSpecificCommandCreation(Action<IAttackCommand> creationCallback)
-        {
-            _creationCallback = creationCallback;
-        }
-        public override void ProcessCancel()
-        {
-            base.ProcessCancel();
-            _creationCallback = null;
-        }
+        protected override IAttackCommand createCommand(IAttackable argument) => new
+        AttackCommand(argument);
     }
-
 }

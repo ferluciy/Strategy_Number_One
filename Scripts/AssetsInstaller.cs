@@ -1,3 +1,4 @@
+using Abstractions;
 using Strategy;
 using UnityEngine;
 using UtilsStrategy;
@@ -13,5 +14,10 @@ public class AssetsInstaller : ScriptableObjectInstaller<AssetsInstaller>
     {
         Container.BindInstances(_legacyContext, _groundClicksRMB,
         _attackableClicksRMB, _selectables);
+        Container.Bind<IAwaitable<IAttackable>>()
+        .FromInstance(_attackableClicksRMB);
+        Container.Bind<IAwaitable<Vector3>>()
+        .FromInstance(_groundClicksRMB);
     }
+
 }
