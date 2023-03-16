@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using UniRx;
 
 namespace Strategy { 
 
 public class CommandButtonsPresenter : MonoBehaviour
 {
-    [SerializeField] private SelectableValue _selectable;
+    [Inject] private IObservable<ISelecatable> _selectedValues;
     [SerializeField] private CommandButtonsView _view;
     [Inject] private CommandButtonsModel _model;
     private ISelecatable _currentSelectable;
@@ -19,8 +20,7 @@ public class CommandButtonsPresenter : MonoBehaviour
             _model.OnCommandSent += _view.UnblockAllInteractions;
             _model.OnCommandCancel += _view.UnblockAllInteractions;
             _model.OnCommandAccepted += _view.BlockInteractions;
-            _selectable.OnNewValue += onSelected;
-            onSelected(_selectable.CurrentValue);
+            _selectedValues.Subscribe(onSelected);
         }
     private void onSelected(ISelecatable selectable)
     {

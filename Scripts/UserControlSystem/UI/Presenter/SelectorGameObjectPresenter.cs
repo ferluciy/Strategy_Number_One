@@ -1,18 +1,20 @@
 using Abstractions;
 using Strategy;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
+using Zenject;
 
 public class SelectorGameObjectPresenter : MonoBehaviour
 {
-    [SerializeField] private SelectableValue _selectable;
+    [Inject] private IObservable<ISelecatable> _selectedValues;
     private SelectorObjectGame[] _selectors;
     private ISelecatable _currentSelectable;
     private void Start()
     {
-        _selectable.OnNewValue += onSelected;
-        onSelected(_selectable.CurrentValue);
+        _selectedValues.Subscribe(onSelected);
     }
     private void onSelected(ISelecatable selectable)
     {

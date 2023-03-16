@@ -1,6 +1,10 @@
+using Abstractions;
+using System;
 using TMPro;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Strategy
 {
@@ -11,12 +15,11 @@ namespace Strategy
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private Image _sliderBackground;
     [SerializeField] private Image _sliderFillImage;
-    [SerializeField] private SelectableValue _selectedValue;
-    private void Start()
+    [Inject] private IObservable<ISelecatable> _selectedValues;
+        private void Start()
     {
-        _selectedValue.OnNewValue += onSelected;
-        onSelected(_selectedValue.CurrentValue);
-    }
+            _selectedValues.Subscribe(onSelected);
+        }
     private void onSelected(Abstractions.ISelecatable selected)
     {
         _selectedImage.enabled = selected != null;
