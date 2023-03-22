@@ -15,12 +15,12 @@ namespace Strategy
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private Image _sliderBackground;
     [SerializeField] private Image _sliderFillImage;
-    [Inject] private IObservable<ISelecatable> _selectedValues;
+    [Inject] private IObservable<ISelectable> _selectedValues;
         private void Start()
     {
             _selectedValues.Subscribe(onSelected);
         }
-    private void onSelected(Abstractions.ISelecatable selected)
+    private void onSelected(Abstractions.ISelectable selected)
     {
         _selectedImage.enabled = selected != null;
         _healthSlider.gameObject.SetActive(selected != null);

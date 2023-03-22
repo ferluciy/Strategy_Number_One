@@ -10,10 +10,10 @@ namespace Strategy {
 
 public class CommandButtonsPresenter : MonoBehaviour
 {
-    [Inject] private IObservable<ISelecatable> _selectedValues;
+    [Inject] private IObservable<ISelectable> _selectedValues;
     [SerializeField] private CommandButtonsView _view;
     [Inject] private CommandButtonsModel _model;
-    private ISelecatable _currentSelectable;
+    private ISelectable _currentSelectable;
     private void Start()
     {
             _view.OnClick += _model.OnCommandButtonClicked;
@@ -22,7 +22,7 @@ public class CommandButtonsPresenter : MonoBehaviour
             _model.OnCommandAccepted += _view.BlockInteractions;
             _selectedValues.Subscribe(onSelected);
         }
-    private void onSelected(ISelecatable selectable)
+    private void onSelected(ISelectable selectable)
     {
         if (_currentSelectable == selectable)
         {

@@ -2350,11 +2350,11 @@ GameObject:
   - component: {fileID: 5655802873838112032}
   - component: {fileID: 2949616251739364007}
   - component: {fileID: 7630371220959137590}
-  - component: {fileID: 7305155281767187280}
+  - component: {fileID: 7706892838897386204}
+  - component: {fileID: 2353004977789317942}
+  - component: {fileID: 3924776280909812427}
+  - component: {fileID: 3662896963129802254}
   - component: {fileID: 8210869956925125183}
-  - component: {fileID: 3917710474813266932}
-  - component: {fileID: 2639352509747935165}
-  - component: {fileID: 997413113950201913}
   - component: {fileID: 8177295414439562160}
   m_Layer: 0
   m_Name: Unit1
@@ -2503,7 +2503,7 @@ CapsuleCollider:
   m_Height: 2.1745324
   m_Direction: 1
   m_Center: {x: 0, y: 0.5872662, z: 0}
---- !u!114 &7305155281767187280
+--- !u!114 &7706892838897386204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2512,9 +2512,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 2721488403123776663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fbebc5810e85c74c96dabc9ffe52af5, type: 3}
+  m_Script: {fileID: 11500000, guid: 99d7d02c47a9a9043944007c1bc565ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2353004977789317942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721488403123776663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b76d977f586d574390efaebd895cd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3924776280909812427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721488403123776663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158191f1c7cc4744f96a0f27cfe98e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3662896963129802254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721488403123776663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65cb0a521333de045998b8a6d1372a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stop: {fileID: 8210869956925125183}
+  _animator: {fileID: 2721488403116481061}
+  _stopCommandExecutor: {fileID: 7706892838897386204}
 --- !u!114 &8210869956925125183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2528,45 +2567,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 8177295414439562160}
---- !u!114 &3917710474813266932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721488403123776663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83a0e376c8a9da147bf7bafd1c6e13f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2639352509747935165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721488403123776663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b1d15c1e818bb45809283187b85c23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stop: {fileID: 8210869956925125183}
-  _animator: {fileID: 2721488403116481061}
-  _stopCommandExecutor: {fileID: 7305155281767187280}
---- !u!114 &997413113950201913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721488403123776663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0522d2b03f8e99748995f1997a5fcf10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &8177295414439562160
 NavMeshAgent:
   m_ObjectHideFlags: 0
