@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace Strategy
 {
 
-    public class MainBuilding : CommandExecutorBase<IProduceUnitCommand>, ISelecatable, IAttackable
+    public class MainBuilding : CommandExecutorBase<IProduceUnitCommand>, ISelectable, IAttackable
     {
         public float Health => _health;
         public float MaxHealth => _maxHealth;
@@ -23,16 +23,16 @@ namespace Strategy
         private float _health = 1000;
         public override async void ExecuteSpecificCommand(IProduceUnitCommand command)
         {
-            var unit = Instantiate(command.UnitPrefab, _respawnUnitPosition.position, Quaternion.identity, _unitsParent);
-            unit.GetComponent<NavMeshAgent>().destination = _moveUnitPosition.position;
-            Animator animator = unit.GetComponent<Animator>();
-            UnitMovementStop stop = unit.GetComponent<UnitMovementStop>();
+            //var unit = Instantiate(command.UnitPrefab, _respawnUnitPosition.position, Quaternion.identity, _unitsParent);
+            //unit.GetComponent<NavMeshAgent>().destination = _moveUnitPosition.position;
+            //Animator animator = unit.GetComponent<Animator>();
+            //UnitMovementStop stop = unit.GetComponent<UnitMovementStop>();
 
-            animator.SetInteger("StateAnim", (int)StateAnimUnit.Run);
+            //animator.SetInteger("StateAnim", (int)StateAnimUnit.Run);
 
-            await unit.GetComponent<UnitMovementStop>();
+            //await unit.GetComponent<UnitMovementStop>();
 
-            animator.SetInteger("StateAnim", (int)StateAnimUnit.Idle);
+            //animator.SetInteger("StateAnim", (int)StateAnimUnit.Idle);
         }
 
 

@@ -44,7 +44,7 @@ namespace Strategy
 
         lmbHitsStream.Subscribe(hits =>
         {
-            if (weHit<ISelecatable>(hits, out var selectable))
+            if (weHit<ISelectable>(hits, out var selectable))
             {
                 _selectedObject.SetValue(selectable);
             }

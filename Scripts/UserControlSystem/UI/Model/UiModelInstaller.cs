@@ -23,8 +23,13 @@ public class UiModelInstaller : MonoInstaller
         .To<PatrolCommandCreator>().AsTransient();
         Container.Bind<CommandCreatorBase<IStopCommand>>()
         .To<StopCommandCreator>().AsTransient();
-        
-    }
+
+            Container.Bind<BottomCenterModel>().AsTransient();
+
+            Container.Bind<float>().WithId("Unit1").FromInstance(5f);
+            Container.Bind<string>().WithId("Unit1").FromInstance("Unit1");
+
+        }
 }
 
 }

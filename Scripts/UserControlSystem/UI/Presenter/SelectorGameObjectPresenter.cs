@@ -9,14 +9,14 @@ using Zenject;
 
 public class SelectorGameObjectPresenter : MonoBehaviour
 {
-    [Inject] private IObservable<ISelecatable> _selectedValues;
+    [Inject] private IObservable<ISelectable> _selectedValues;
     private SelectorObjectGame[] _selectors;
-    private ISelecatable _currentSelectable;
+    private ISelectable _currentSelectable;
     private void Start()
     {
         _selectedValues.Subscribe(onSelected);
     }
-    private void onSelected(ISelecatable selectable)
+    private void onSelected(ISelectable selectable)
     {
         if (_currentSelectable == selectable)
         {

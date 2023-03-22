@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3595916648343484470}
   - component: {fileID: 3595916648344484598}
   - component: {fileID: 1078373551332185506}
+  - component: {fileID: 5414387340666633925}
   - component: {fileID: 4096774040837681837}
   - component: {fileID: 6317855270042587358}
   m_Layer: 0
@@ -138,6 +139,20 @@ MonoBehaviour:
   _pivotPoint: {fileID: 3595916648342190102}
   _moveUnitPosition: {fileID: 8278984430455837725}
   _respawnUnitPosition: {fileID: 623523737541359945}
+--- !u!114 &5414387340666633925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3595916648342545462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4dd399e38984b46bad24eb3cca1297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitsParent: {fileID: 0}
+  _maximumUnitsInQueue: 6
 --- !u!64 &4096774040837681837
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace Strategy
 {
 
-    public class MainUnit : MonoBehaviour, ISelecatable, IAttackable
+    public class MainUnit : MonoBehaviour, ISelectable, IAttackable
     {
         public float Health => _health;
         public float MaxHealth => _maxHealth;
