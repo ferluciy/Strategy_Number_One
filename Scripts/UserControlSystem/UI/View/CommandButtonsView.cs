@@ -8,13 +8,14 @@ using UnityEngine.UI;
 namespace Strategy { 
 public class CommandButtonsView : MonoBehaviour
 {
-    public Action<ICommandExecutor> OnClick;
-[SerializeField] private GameObject _attackButton;
-    [SerializeField] private GameObject _moveButton;
-    [SerializeField] private GameObject _patrolButton;
-    [SerializeField] private GameObject _stopButton;
-    [SerializeField] private GameObject _produceUnitButton;
-    private Dictionary<Type, GameObject> _buttonsByExecutorType;
+        public Action<ICommandExecutor> OnClick;
+        [SerializeField] private GameObject _attackButton;
+        [SerializeField] private GameObject _moveButton;
+        [SerializeField] private GameObject _patrolButton;
+        [SerializeField] private GameObject _stopButton;
+        [SerializeField] private GameObject _produceUnitButton;
+        [SerializeField] private GameObject _setRallyButton;
+        private Dictionary<Type, GameObject> _buttonsByExecutorType;
     private void Start()
     {
         _buttonsByExecutorType = new Dictionary<Type, GameObject>();
@@ -33,7 +34,10 @@ public class CommandButtonsView : MonoBehaviour
         _buttonsByExecutorType
         .Add(typeof(CommandExecutorBase<IProduceUnitCommand>),
         _produceUnitButton);
-    }
+        _buttonsByExecutorType
+        .Add(typeof(CommandExecutorBase<ISetRallyPointCommand>),
+        _setRallyButton);
+        }
     public void BlockInteractions(ICommandExecutor ce)
     {
         UnblockAllInteractions();
@@ -49,7 +53,9 @@ public class CommandButtonsView : MonoBehaviour
         _stopButton.GetComponent<Selectable>().interactable = value;
         _produceUnitButton.GetComponent<Selectable>().interactable =
         value;
-    }
+        _setRallyButton.GetComponent<Selectable>().interactable =
+        value;
+        }
 public void MakeLayout(IEnumerable<ICommandExecutor> commandExecutors)
     {
         foreach (var currentExecutor in commandExecutors)

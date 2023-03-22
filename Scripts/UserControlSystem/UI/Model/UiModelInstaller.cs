@@ -15,7 +15,11 @@ public class UiModelInstaller : MonoInstaller
             Container.Bind<CommandButtonsModel>().AsTransient();
             Container.Bind<CommandCreatorBase<IProduceUnitCommand>>()
         .To<ProduceUnitCommandCommandCreator>().AsTransient();
-        Container.Bind<CommandCreatorBase<IAttackCommand>>()
+
+            Container.Bind<CommandCreatorBase<ISetRallyPointCommand>>()
+        .To<SetRallyPointCommandCreator>().AsTransient();
+
+            Container.Bind<CommandCreatorBase<IAttackCommand>>()
         .To<AttackCommandCreator>().AsTransient();
         Container.Bind<CommandCreatorBase<IMoveCommand>>()
         .To<MoveCommandCreator>().AsTransient();
