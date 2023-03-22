@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 5414387340666633925}
   - component: {fileID: 4096774040837681837}
   - component: {fileID: 6317855270042587358}
+  - component: {fileID: 2806821487599591599}
   m_Layer: 0
   m_Name: TownHall
   m_TagString: Untagged
@@ -139,6 +140,7 @@ MonoBehaviour:
   _pivotPoint: {fileID: 3595916648342190102}
   _moveUnitPosition: {fileID: 8278984430455837725}
   _respawnUnitPosition: {fileID: 623523737541359945}
+  _rallyPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &5414387340666633925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitsParent: {fileID: 0}
   _maximumUnitsInQueue: 6
+  _bilding: {fileID: 1078373551332185506}
 --- !u!64 &4096774040837681837
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -180,6 +183,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effect: {fileID: 7958682828811302604}
+--- !u!114 &2806821487599591599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3595916648342545462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8afa448c547154942a203d8c218a6e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7023884286494428250
 GameObject:
   m_ObjectHideFlags: 0

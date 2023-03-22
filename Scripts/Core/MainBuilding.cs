@@ -12,6 +12,7 @@ namespace Strategy
         public float MaxHealth => _maxHealth;
         public Transform MoveUnitPosition => _moveUnitPosition;
         public Transform RespawnUnitPosition => _respawnUnitPosition;
+        public Vector3 RallyPoint { get => _rallyPoint; set => _rallyPoint = value; }
         public Transform PivotPoint => _pivotPoint;
         public Sprite Icon => _icon;
         [SerializeField] private Transform _unitsParent;
@@ -21,6 +22,8 @@ namespace Strategy
         [SerializeField] private Transform _moveUnitPosition;
         [SerializeField] private Transform _respawnUnitPosition;
         private float _health = 1000;
+        [SerializeField] private Vector3 _rallyPoint;
+
         public override async void ExecuteSpecificCommand(IProduceUnitCommand command)
         {
             //var unit = Instantiate(command.UnitPrefab, _respawnUnitPosition.position, Quaternion.identity, _unitsParent);
