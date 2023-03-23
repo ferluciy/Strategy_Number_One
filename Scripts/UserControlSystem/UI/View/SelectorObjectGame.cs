@@ -8,6 +8,10 @@ public class SelectorObjectGame : MonoBehaviour
     private bool _isSelectedCache;
     public void SetSelected(bool isSelected)
     {
+            if (this == null)
+            {
+                return;
+                    }
         if (isSelected == _isSelectedCache)
         {
             return;

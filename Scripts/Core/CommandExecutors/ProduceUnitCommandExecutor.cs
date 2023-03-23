@@ -5,6 +5,9 @@ using UnityEngine;
 using static PlasticPipe.PlasticProtocol.Messages.NegotiationCommand;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using Zenject;
+using System.ComponentModel;
+
 public class ProduceUnitCommandExecutor :
 CommandExecutorBase<IProduceUnitCommand>, IUnitProducer
 {
@@ -13,6 +16,7 @@ CommandExecutorBase<IProduceUnitCommand>, IUnitProducer
     [SerializeField] private Transform _unitsParent;
     [SerializeField] private int _maximumUnitsInQueue = 6;
     [SerializeField] private MainBuilding _bilding;
+    [Inject] private DiContainer _diContainer;
     private ReactiveCollection<IUnitProductionTask> _queue = new
     ReactiveCollection<IUnitProductionTask>();
     private async void Update()
@@ -26,12 +30,11 @@ CommandExecutorBase<IProduceUnitCommand>, IUnitProducer
         if (innerTask.TimeLeft <= 0)
         {
             removeTaskAtIndex(0);
-            Instantiate(innerTask.UnitPrefab, new
-            Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)),
-            Quaternion.identity, _unitsParent);
 
-            var unit = Instantiate(innerTask.UnitPrefab, _bilding.RespawnUnitPosition.position, Quaternion.identity, _unitsParent);
+            var unit = _diContainer.InstantiatePrefab(innerTask.UnitPrefab, _bilding.RespawnUnitPosition.position, Quaternion.identity, _unitsParent);
             unit.GetComponent<NavMeshAgent>().destination = _bilding.RallyPoint;
+            var factionMember = unit.GetComponent<FactionMember>();
+            factionMember.SetFaction(GetComponent<FactionMember>().FactionId);
             Animator animator = unit.GetComponent<Animator>();
             UnitMovementStop stop = unit.GetComponent<UnitMovementStop>();
 
