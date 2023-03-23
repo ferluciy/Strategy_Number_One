@@ -24,7 +24,7 @@ namespace Strategy
         private float _health = 1000;
         [SerializeField] private Vector3 _rallyPoint;
 
-        public override async void ExecuteSpecificCommand(IProduceUnitCommand command)
+        public override void ExecuteSpecificCommand(IProduceUnitCommand command)
         {
             //var unit = Instantiate(command.UnitPrefab, _respawnUnitPosition.position, Quaternion.identity, _unitsParent);
             //unit.GetComponent<NavMeshAgent>().destination = _moveUnitPosition.position;
@@ -36,6 +36,19 @@ namespace Strategy
             //await unit.GetComponent<UnitMovementStop>();
 
             //animator.SetInteger("StateAnim", (int)StateAnimUnit.Idle);
+        }
+
+        public void RecieveDamage(int amount)
+        {
+            if (_health <= 0)
+            {
+                return;
+            }
+            _health -= amount;
+            if (_health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
 
 
