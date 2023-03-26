@@ -10,6 +10,7 @@ public class CommandButtonsModel
     public event Action OnCommandSent;
     public event Action OnCommandCancel;
     [Inject] private CommandCreatorBase<IProduceUnitCommand> _unitProducer;
+        [Inject] private CommandCreatorBase<IProduceUnit2Command> _unit2Producer;
         [Inject] private CommandCreatorBase<ISetRallyPointCommand> _unitSetRally;
         [Inject] private CommandCreatorBase<IAttackCommand> _attacker;
     [Inject] private CommandCreatorBase<IStopCommand> _stopper;
@@ -25,6 +26,8 @@ private bool _commandIsPending;
         _commandIsPending = true;
         OnCommandAccepted?.Invoke(commandExecutor);
         _unitProducer.ProcessCommandExecutor(commandExecutor, command =>
+        executeCommandWrapper(commandExecutor, command));
+            _unit2Producer.ProcessCommandExecutor(commandExecutor, command =>
         executeCommandWrapper(commandExecutor, command));
             _unitSetRally.ProcessCommandExecutor(commandExecutor, command =>
         executeCommandWrapper(commandExecutor, command));
@@ -52,6 +55,7 @@ private bool _commandIsPending;
     private void processOnCancel()
     {
         _unitProducer.ProcessCancel();
+            _unit2Producer.ProcessCancel();
             _unitSetRally.ProcessCancel();
             _attacker.ProcessCancel();
         _stopper.ProcessCancel();

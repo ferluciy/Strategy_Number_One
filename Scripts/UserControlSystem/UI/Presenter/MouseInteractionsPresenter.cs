@@ -4,6 +4,8 @@ using Abstractions;
 using UnityEngine.EventSystems;
 using UniRx;
 using Zenject;
+using UnityEngine.UI;
+using Abstractions.Commands;
 
 namespace Strategy
 {
@@ -15,6 +17,7 @@ namespace Strategy
         [SerializeField] private Vector3Value _groundClicksRMB;
         [SerializeField] private AttackableValue _attackablesRMB;
         [SerializeField] private Transform _groundTransform;
+        [SerializeField] private Button _moveButton;
         private Plane _groundPlane;
         [Inject]
         private void Init()
@@ -58,9 +61,15 @@ namespace Strategy
                 }
                 else if (_groundPlane.Raycast(ray, out var enter))
                 {
-                    _groundClicksRMB.SetValue(ray.origin + ray.direction
-                    * enter);
+                _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
+                var obj = (_selectedObject.CurrentValue as Component);
+                if (obj != null)
+                {
+                 obj.GetComponent<MoveCommandExecutor>()?.GoCommand(_groundClicksRMB.CurrentValue);
+
                 }
+                
+            }
             });
         }
         private bool weHit<T>(RaycastHit[] hits, out T result) where T : class

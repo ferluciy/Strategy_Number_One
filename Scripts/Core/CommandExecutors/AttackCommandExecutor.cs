@@ -15,8 +15,8 @@ public partial class AttackCommandExecutor : CommandExecutorBase<IAttackCommand>
     [SerializeField] private Animator _animator;
     [SerializeField] private StopCommandExecutor _stopCommandExecutor;
     [Inject] private IHealthHolder _ourHealth;
-    [Inject(Id = "AttackDistance")] private float _attackingDistance;
-    [Inject(Id = "AttackPeriod")] private int _attackingPeriod;
+    [SerializeField] private float _attackingDistance;
+    [SerializeField] private int _attackingPeriod;
     private Vector3 _ourPosition;
     private Vector3 _targetPosition;
     private Quaternion _ourRotation;
