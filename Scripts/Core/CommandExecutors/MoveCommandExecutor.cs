@@ -12,9 +12,15 @@ namespace Strategy
         [SerializeField] private UnitMovementStop _stop;
         [SerializeField] private Animator _animator;
         [SerializeField] private StopCommandExecutor _stopCommandExecutor;
-        public override async void ExecuteSpecificCommand(IMoveCommand command)
+        public override void ExecuteSpecificCommand(IMoveCommand command)
         {
-            GetComponent<NavMeshAgent>().destination = command.Target;
+            GoCommand(command.Target);
+        }
+
+        public async void GoCommand(Vector3 target)
+        {
+            GetComponent<NavMeshAgent>().destination = target;
+            GetComponent<NavMeshAgent>().avoidancePriority = 99;
             _animator.SetInteger("StateAnim", (int)StateAnimUnit.Run);
 
             _stopCommandExecutor.CancellationTokenSource = new CancellationTokenSource();
@@ -35,6 +41,7 @@ namespace Strategy
             }
             _stopCommandExecutor.CancellationTokenSource = null;
             _animator.SetInteger("StateAnim", (int)StateAnimUnit.Idle);
+            GetComponent<NavMeshAgent>().avoidancePriority = 0;
         }
     }
 

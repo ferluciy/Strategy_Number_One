@@ -15,6 +15,8 @@ public class UiModelInstaller : MonoInstaller
             Container.Bind<CommandButtonsModel>().AsTransient();
             Container.Bind<CommandCreatorBase<IProduceUnitCommand>>()
         .To<ProduceUnitCommandCommandCreator>().AsTransient();
+            Container.Bind<CommandCreatorBase<IProduceUnit2Command>>()
+        .To<ProduceUnit2CommandCommandCreator>().AsTransient();
 
             Container.Bind<CommandCreatorBase<ISetRallyPointCommand>>()
         .To<SetRallyPointCommandCreator>().AsTransient();
@@ -32,6 +34,8 @@ public class UiModelInstaller : MonoInstaller
 
             Container.Bind<float>().WithId("Unit1").FromInstance(5f);
             Container.Bind<string>().WithId("Unit1").FromInstance("Unit1");
+            Container.Bind<float>().WithId("Unit2").FromInstance(5f);
+            Container.Bind<string>().WithId("Unit2").FromInstance("Unit2");
 
         }
 }

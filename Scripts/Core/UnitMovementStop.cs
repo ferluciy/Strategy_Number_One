@@ -14,7 +14,10 @@ namespace Strategy {
         Attack2 = 3,
         Death = 4
     }
-public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
+
+
+
+    public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
 {
         public class StopAwaiter : AwaiterBase<AsyncExtensions.Void>
         {
@@ -31,7 +34,7 @@ public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
             }
         }
         public event Action OnStop;
-        [SerializeField] private NavMeshAgent _agent;
+        [SerializeField] public NavMeshAgent _agent;
         [SerializeField] private CollisionDetector _collisionDetector;
         [SerializeField] private int _throttleFrames = 60;
         [SerializeField] private int _continuityThreshold = 10;

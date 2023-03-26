@@ -1,7 +1,10 @@
 using System;
 
-namespace UtilsStrategy { 
-public abstract class AwaiterBase<TAwaited> : IAwaiter<TAwaited>
+namespace UtilsStrategy {
+
+ 
+
+    public abstract class AwaiterBase<TAwaited> : IAwaiter<TAwaited>
 {
     private Action _continuation;
     private bool _isCompleted;
